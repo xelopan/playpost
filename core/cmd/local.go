@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/xelopan/playpost-core/api"
+	"playpost/core/api"
 )
 
 func main() {

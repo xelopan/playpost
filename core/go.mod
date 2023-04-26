@@ -1,4 +1,4 @@
-module github.com/xelopan/playpost-core
+module playpost/core
 
 go 1.20
 
