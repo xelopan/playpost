@@ -27,8 +27,9 @@ func NewRouter() *gin.Engine {
 
 			user := new(controllers.UserController)
 			v1.GET("/user", user.GetRecommended)
-			v1.GET("/user/:id", user.GetDetails)
 			v1.GET("/user/search/:query", user.Search)
+			v1.GET("/user/:id", user.GetDetails)
+			v1.PATCH("/user/:id", user.EditDetails)
 			v1.POST("/user/:id/friend", user.CreateFriendRequest)
 			v1.PATCH("/user/:id/friend", user.RespondFriendRequest)
 			v1.DELETE("/user/:id/friend", user.CancelFriendRequest)

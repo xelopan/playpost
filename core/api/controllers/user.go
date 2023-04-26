@@ -14,14 +14,19 @@ func (UserController) GetRecommended(c *gin.Context) {
 	c.String(http.StatusOK, "Get list of recommended user")
 }
 
+func (UserController) Search(c *gin.Context) {
+	// GET get the list of user
+	c.String(http.StatusOK, "Searching user by name or handle")
+}
+
 func (UserController) GetDetails(c *gin.Context) {
 	// GET get details of a user, and also status of friend request
 	c.String(http.StatusOK, "Details of a user")
 }
 
-func (UserController) Search(c *gin.Context) {
-	// GET get the list of user
-	c.String(http.StatusOK, "Searching user by name or handle")
+func (UserController) EditDetails(c *gin.Context) {
+	// PATCH edit details of a user
+	c.String(http.StatusOK, "Edit details of a user")
 }
 
 func (UserController) GetFriends(c *gin.Context) {
