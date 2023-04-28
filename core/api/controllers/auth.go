@@ -2,6 +2,8 @@ package controllers
 
 import (
 	"net/http"
+	"playpost/core/app/models"
+	"playpost/core/app/services"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,8 +17,24 @@ func (AuthController) Auth(c *gin.Context) {
 }
 
 func (AuthController) Register(c *gin.Context) {
-	// TODO implement a way to register a user
-	c.String(http.StatusOK, "Register!")
+	authSvc := new(services.AuthService)
+	var err error
+
+	var reg models.Register
+	c.Request.ParseForm()
+	err = c.Bind(&reg)
+	if err != nil {
+		PublishError(c, err)
+		return
+	}
+	// userdata := make(map[string]string)
+
+	_, err = authSvc.Register(&reg)
+	if err != nil {
+		PublishError(c, err)
+		return
+	}
+	c.String(http.StatusOK, "User registered, try to login!")
 }
 
 func (AuthController) Logout(c *gin.Context) {
