@@ -55,3 +55,9 @@ func (AuthService) Register(userdata *models.Register) (int64, error) {
 
 	return insertResult.LastInsertId()
 }
+
+// Authenticate a user. Returns an access token
+func (AuthService) Authenticate(logindata *models.User) (string, error) {
+
+	return "", nil
+}

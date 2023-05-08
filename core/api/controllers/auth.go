@@ -27,7 +27,6 @@ func (AuthController) Register(c *gin.Context) {
 		PublishError(c, err)
 		return
 	}
-	// userdata := make(map[string]string)
 
 	_, err = authSvc.Register(&reg)
 	if err != nil {
